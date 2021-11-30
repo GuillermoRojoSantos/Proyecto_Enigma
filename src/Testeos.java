@@ -15,7 +15,7 @@ public class Testeos {
                 //System.out.println(nueva);
                 break;
             }
-            while(c>=3) {
+            while(c>3) {
                 nueva2=nueva2+cadena.charAt(i);
                 //System.out.println(nueva2);
                 break;
