@@ -23,15 +23,22 @@ public class Rotor_1 {
 		int c=0;
 		String nueva="";
 		for (int i=0; i<cadena.length();i++) {
-			while(c<3) {
-				nueva=nueva+Cifrardor(cadena.charAt(i), valor);
-				//System.out.println(nueva);
-				break;
-			}
-			while(c>=3) {
-				nueva=nueva+cadena.charAt(i);
-				//System.out.println(nueva2);
-				break;
+			int assciiValue = cadena.charAt(i);
+			if (assciiValue>=32 && assciiValue<=126) {
+
+
+				while (c < 3) {
+					nueva = nueva + Cifrardor(cadena.charAt(i), valor);
+					//System.out.println(nueva);
+					break;
+				}
+				while (c >= 3) {
+					nueva = nueva + cadena.charAt(i);
+					//System.out.println(nueva2);
+					break;
+				}
+			}else{
+				nueva +=cadena.charAt(i);
 			}
 			c++;
 			if(c==6) {
@@ -45,15 +52,20 @@ public class Rotor_1 {
 		int c=0;
 		String nueva="";
 		for (int i=0; i<cadena.length();i++) {
-			while(c<3) {
-				nueva=nueva+Descifrar(cadena.charAt(i), valor);
-				//System.out.println(nueva);
-				break;
-			}
-			while(c>=3) {
-				nueva=nueva+cadena.charAt(i);
-				//System.out.println(nueva2);
-				break;
+			int assciiValue = cadena.charAt(i);
+			if (assciiValue>=32 && assciiValue<=126) {
+				while (c < 3) {
+					nueva = nueva + Descifrar(cadena.charAt(i), valor);
+					//System.out.println(nueva);
+					break;
+				}
+				while (c >= 3) {
+					nueva = nueva + cadena.charAt(i);
+					//System.out.println(nueva2);
+					break;
+				}
+			}else{
+				nueva +=cadena.charAt(i);
 			}
 			c++;
 			if(c==6) {
