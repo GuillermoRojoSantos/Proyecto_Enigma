@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.SplittableRandom;
 
 public class MáquinaEnigma {
     public static void main(String[] args) {
@@ -98,6 +99,118 @@ public class MáquinaEnigma {
         System.out.println("Das frasen desencriptaren ist: ");
         System.out.println(nueva);
     }
+    public static void Rotor2Encriptar(String cadena, int numRotor){
+        String frase = cadena;
+        String fraseNueva= "";
+        for (int i = 0;i<frase.length();i++){
+            if (i %2==0){
+                fraseNueva += Cifrardor(frase.charAt(i),numRotor);
+                numRotor +=11;
+            }else{
+                fraseNueva+=frase.charAt(i);
+            }
+        }
+        System.out.println(fraseNueva);
+    }
+    public static void Rotor2Desenciptar (String cadena, int numRotor){
+        String frase = cadena;
+        String fraseNueva= "";
+        for (int i = 0;i<frase.length();i++){
+            if (i %2==0){
+                fraseNueva += Descifrar(frase.charAt(i),numRotor);
+                numRotor +=11;
+            }else{
+                fraseNueva+=frase.charAt(i);
+            }
+        }
+        System.out.println(fraseNueva);
+    }
+    public static void Rotor3Encriptar(String cadena, int numRotor){
+        Scanner sc= new Scanner (System.in);
+        System.out.println("Introduce la frase del rotor C");
+        String fraseEncriptada="";
+        int rotorC=85;
+        for( int i=cadena.length()-1;i>=0;i--) {
+            if(i%2!=0) {
+                fraseEncriptada+=Cifrardor(cadena.charAt(i),numRotor);
+                rotorC+=23;
+            }else {
+                fraseEncriptada+=cadena.charAt(i);
+            }
+
+
+        }
+        System.out.println(fraseEncriptada);
+    }
+    public static void Rotor3Desencriptar(String cadena, int numRotor){
+        String frasenueva = InvertirCadena(cadena);
+        String frasedes="";
+        String fraseDef="";
+        int rotorC=85;
+        for(int i=frasenueva.length()-1; i>=0;i--) {
+            if(i%2!=0) {
+                frasedes+=Descifrar(frasenueva.charAt(i),rotorC);
+                rotorC+=23;
+
+
+            }else {
+                frasedes+=frasenueva.charAt(i);
+            }
+
+        }
+        System.out.println(frasedes);
+
+        for(int j=frasedes.length()-1;j>=0; j--) {
+            fraseDef+=frasedes.charAt(j);
+
+        }
+        System.out.println(fraseDef);
+
+
+
+
+    }
+    public static void Rotor4Encriptar(String cadena, int numRotor){
+        int c=0;
+        String nueva="";
+        String fraseReves = InvertirCadena(cadena);
+        for (int i=0; i<fraseReves.length();i++) {
+            while(c<5) {
+                nueva=nueva+Cifrardor(fraseReves.charAt(i), numRotor);
+                break;
+            }
+            while(c>=5) {
+                nueva=nueva+fraseReves.charAt(i);
+                break;
+            }
+            c++;
+            if(c==10) {
+                c=0;
+
+            }
+
+
+        }
+    }
+    public static void Rotor4Desencriptar(String cadena, int numRotor){
+        int c=0;
+        String nueva="";
+        for (int i=0; i<cadena.length();i++) {
+            while(c<5) {
+                nueva=nueva+Descifrar(cadena.charAt(i), numRotor);
+                break;
+            }
+            while(c>=5) {
+                nueva=nueva+cadena.charAt(i);
+                break;
+            }
+            c++;
+            if(c==10) {
+                c=0;
+
+            }
+        }
+    }
     public static char Cifrardor (char letra, int valor) {
 
         int codigo=(int)letra;
@@ -120,4 +233,13 @@ public class MáquinaEnigma {
         return (char)resultado;
 
     }
+    public static String InvertirCadena (String cadena){
+        String frasealreves="";
+        for(int h=cadena.length()-1;h>=0;h--) {
+            frasealreves += cadena.charAt(h);
+        }
+        return frasealreves;
+    }
+
+
 }
