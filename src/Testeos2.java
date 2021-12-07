@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Testeos2 {
 
-    public class romperMaquina {
-
         public static void main(String[] args) {
             // TODO Auto-generated method stub
             Scanner sc = new Scanner(System.in);
@@ -185,7 +183,5 @@ public class Testeos2 {
             }
             return fraseReves;
         }
-
-    }
 
 }
