@@ -35,7 +35,7 @@ public class MáquinaEnigma {
         System.out.println("3. Romper la Máquina Enigma: A partir de unas   ");
         System.out.println("   palabras introducida, el programa buscará la ");
         System.out.println("   posición de cada rotor si encuentra una coin-");
-        System.out.println("   cidencia con alguna palabra introducida.")
+        System.out.println("   cidencia con alguna palabra introducida.");
         System.out.println("************************************************");
     }
     public static void Rotor1Encriptar(String cadena, int numRotor) {
