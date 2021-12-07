@@ -20,7 +20,6 @@ public class MáquinaEnigma {
                 break;
 
         }
-        System.out.println("Me sudan los huevos");
     }
     public static void ImprimirMenu () {
         System.out.println("************************************************");
