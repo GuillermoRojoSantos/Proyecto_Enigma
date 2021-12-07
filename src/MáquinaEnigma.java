@@ -32,6 +32,7 @@ public class MáquinaEnigma {
         System.out.println("2. Desencriptar: el programa descifrara el texto");
         System.out.println("   que introduzca respecto al número de rotor");
         System.out.println("   especificado.");
+        System.out.println();
         System.out.println("3. Romper la Máquina Enigma: A partir de unas   ");
         System.out.println("   palabras introducida, el programa buscará la ");
         System.out.println("   posición de cada rotor si encuentra una coin-");
