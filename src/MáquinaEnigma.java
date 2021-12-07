@@ -11,21 +11,16 @@ public class MáquinaEnigma {
         switch (opcionMenu) {
             case 1:
                 //aquí iria el encriptadoR
-
-
-
-
-
                 break;
             case 2:
                 //aquí iría el desencriptadoR
                 break;
-
             case 3:
                 //y aquí iría el código para romper la máquina enigmA
                 break;
 
         }
+        System.out.println("Me sudan los huevos");
     }
     public static void ImprimirMenu () {
         System.out.println("************************************************");
