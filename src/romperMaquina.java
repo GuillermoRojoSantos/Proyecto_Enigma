@@ -6,38 +6,41 @@ public class romperMaquina {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-		//String[] palabrasClave = {"Mancha"};
+		String[] palabrasClave = { /*"mar", "Mar",*/ "enemigo", "Enemigo", "aproxima","peligro", "ataque", "lancha",
+				"barco", /*"dia",*/ "mañana", "grados", "despejado", "nublado", "soleado", "frio", "nieve", "punto",
+				"batallón", "noche","buque","fecha","hora","Atlántico","Océano","rusos","Ruso","radar","misil","lunes","Lunes","martes","Martes","miércoles","Miércoles"
+				,"jueves","Jueves","viernes","Viernes","sábado","Sábado","escuadrón","buque","carga","informe","Buque","Carga","Informe","345/32","atlantico","submarino"};
 
 		System.out.println("Introduzca la frase a romper");
 		String frase = sc.nextLine();
 		String resultadoRotor="";
 
 		for (int i = 0; i <= 99; i++) {
-			
+
 			for(int m=0;m<=99;m++) {
 				for(int n=0;n<=99;n++) {
 					for(int l=0;l<=99;l++) {
 						resultadoRotor=descifrarRotor4(descifrarRotor3(descifrarRotor2(descifrarRotor1(frase, i),m),n),l);
-						//for(String clave:palabrasClave)
 
-					
-						
-						if(resultadoRotor.contains("Mancha")) {
-							System.out.println("Palabra clave encontrada:  "+i+" "+m+" "+n+" "+l);
-							System.out.println(resultadoRotor);
-							
-						}else {
-							//System.out.println("Nada");
-						}
-						
+						for(String clave:palabrasClave)
+
+
+							if(resultadoRotor.contains(clave)) {
+								System.out.println("Palabra clave encontrada: "+clave+" "+i+" "+m+" "+n+" "+l);
+								System.out.println(resultadoRotor);
+
+							}else {
+								//System.out.println("Nada");
+							}
+
 					}
 				}
-				
+
 			}
-			
-			
-			
-			
+
+
+
+
 		}
 
 	}
@@ -152,12 +155,9 @@ public class romperMaquina {
 		String nueva = "";
 		for (int i = 0; i < frase.length(); i++) {
 			int asciiValue = frase.charAt(i);
-			while (c < 5) {
-				if (asciiValue>=32 && asciiValue<=126) {
-					nueva = nueva + descifrar(frase.charAt(i), valor);
-				}else{
-					nueva = nueva + frase.charAt(i);
-				}
+			while (c < 5&& asciiValue >= 32 && asciiValue <= 126) {
+				nueva = nueva + descifrar(frase.charAt(i), valor);
+
 				break;
 			}
 			while (c >= 5) {
