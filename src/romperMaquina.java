@@ -6,38 +6,49 @@ public class romperMaquina {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-		//String[] palabrasClave = {"Mancha"};
+		String[] palabrasClave = { "Dubrowki","Opotschka"};
 
 		System.out.println("Introduzca la frase a romper");
 		String frase = sc.nextLine();
 		String resultadoRotor="";
+		String rotor1,rotor2,rotor3,rotor4;
 
-		for (int i = 0; i <= 99; i++) {
-			
-			for(int m=0;m<=99;m++) {
+		rotor1=descifrarRotor1(frase,59);
+		rotor2=descifrarRotor2(rotor1,31);
+		rotor3=descifrarRotor3(rotor2,92);
+		rotor4=descifrarRotor4(rotor3,87);
+
+		System.out.println(rotor4);
+		sc.nextLine();
+		for (int i = 59; i <= 99; i++) {
+			System.out.println(i);
+			for(int m=29;m<=99;m++) {
+				System.out.print(m+" ");
 				for(int n=0;n<=99;n++) {
-					for(int l=0;l<=99;l++) {
-						resultadoRotor=descifrarRotor4(descifrarRotor3(descifrarRotor2(descifrarRotor1(frase, i),m),n),l);
-						//for(String clave:palabrasClave)
 
-					
-						
-						if(resultadoRotor.contains("Mancha")) {
-							System.out.println("Palabra clave encontrada:  "+i+" "+m+" "+n+" "+l);
+					for(int l=0;l<=99;l++) {
+
+						resultadoRotor=descifrarRotor4(descifrarRotor3(descifrarRotor2(descifrarRotor1(frase, i),m),n),l);
+
+						for(String clave:palabrasClave)
+
+
+						if(resultadoRotor.contains(clave)) {
+							System.out.println("Palabra clave encontrada: "+clave+i+" "+m+" "+n+" "+l);
 							System.out.println(resultadoRotor);
-							
+
 						}else {
 							//System.out.println("Nada");
 						}
-						
+
 					}
 				}
-				
+
 			}
-			
-			
-			
-			
+
+
+
+
 		}
 
 	}
@@ -60,30 +71,24 @@ public class romperMaquina {
 		String nueva = "";
 		for (int i = 0; i < frase.length(); i++) {
 			int assciiValue = frase.charAt(i);
-			if (assciiValue >= 32 && assciiValue <= 126) {
-				while (c < 3) {
-					nueva = nueva + descifrar(frase.charAt(i), rotor);
-					// System.out.println(nueva);
-					break;
-				}
-				while (c >= 3) {
-					nueva = nueva + frase.charAt(i);
-					// System.out.println(nueva2);
-					break;
-				}
-			} else {
-				nueva += frase.charAt(i);
+			if (c < 3 && assciiValue >= 32 && assciiValue <= 126) {
+				nueva = nueva + descifrar(frase.charAt(i), rotor);
+				// System.out.println(nueva);
+			}else{
+				nueva = nueva + frase.charAt(i);
+				// System.out.println(nueva2);
 			}
-			c++;
-			if (c == 6) {
+
+			if (c == 5) {
 				c = 0;
 
+			}else {
+				c++;
 			}
-
 		}
 		//System.out.println("Das frasen desencriptaren ist: ");
 		//System.out.println(nueva);
-		return (String) nueva;
+		return nueva;
 	}
 
 	public static String descifrarRotor2(String frase, int rotor) {
@@ -114,27 +119,43 @@ public class romperMaquina {
 
 		String fraseDef = "";
 
-		for (int i = frasenueva.length() - 1; i >= 0; i--) {
-			int asciiValue = frasenueva.charAt(i);
+		if (frase.length()%2==0) {
+			for (int i=0;i<frase.length();i++) {
+				int asciiValue = frasenueva.charAt(i);
 
-			if (asciiValue >= 32 && asciiValue <= 126 && i % 2 != 0) {
+				if (asciiValue >= 32 && asciiValue <= 126 && i % 2 == 0) {
 
-				frasedes += descifrar(frasenueva.charAt(i), rotor);
-				rotor += 23;
+					frasedes += descifrar(frasenueva.charAt(i), rotor);
+					rotor += 23;
 
-			} else {
-				frasedes += frasenueva.charAt(i);
+				} else {
+					frasedes += frasenueva.charAt(i);
+				}
+
 			}
+		}else {
+			for (int i=0;i<frase.length();i++) {
+				int asciiValue = frasenueva.charAt(i);
 
+				if (asciiValue >= 32 && asciiValue <= 126 && i % 2 != 0) {
+
+					frasedes += descifrar(frasenueva.charAt(i), rotor);
+					rotor += 23;
+
+				} else {
+					frasedes += frasenueva.charAt(i);
+				}
+
+			}
 		}
+
 
 		for (int j = frasedes.length() - 1; j >= 0; j--) {
 			fraseDef += frasedes.charAt(j);
-
 		}
 		//System.out.println(fraseDef);
 
-		return (String) fraseDef;
+		return fraseDef;
 
 	}
 
@@ -151,24 +172,19 @@ public class romperMaquina {
 		int c = 0;
 		String nueva = "";
 		for (int i = 0; i < frase.length(); i++) {
-			int asciiValue = frase.charAt(i);
-			while (c < 5) {
-				if (asciiValue>=32 && asciiValue<=126) {
-					nueva = nueva + descifrar(frase.charAt(i), valor);
-				}else{
-					nueva = nueva + frase.charAt(i);
-				}
-				break;
-			}
-			while (c >= 5) {
+			int assciiValue = frase.charAt(i);
+
+			if (c < 5 && assciiValue >= 32 && assciiValue <= 126) {
+				nueva = nueva + descifrar(frase.charAt(i), valor);
+			}else{
 				nueva = nueva + frase.charAt(i);
 
-				break;
 			}
-			c++;
-			if (c == 10) {
+			if (c == 9) {
 				c = 0;
 
+			}else {
+				c++;
 			}
 
 		}
