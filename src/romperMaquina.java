@@ -33,13 +33,13 @@ public class romperMaquina {
 						for(String clave:palabrasClave)
 
 
-						if(resultadoRotor.contains(clave)) {
-							System.out.println("Palabra clave encontrada: "+clave+i+" "+m+" "+n+" "+l);
-							System.out.println(resultadoRotor);
+							if(resultadoRotor.contains(clave)) {
+								System.out.println("Palabra clave encontrada: "+clave+i+" "+m+" "+n+" "+l);
+								System.out.println(resultadoRotor);
 
-						}else {
-							//System.out.println("Nada");
-						}
+							}else {
+								//System.out.println("Nada");
+							}
 
 					}
 				}
@@ -114,7 +114,7 @@ public class romperMaquina {
 		Scanner sc = new Scanner(System.in);
 		//System.out.println("Intoduzca la frase a descifrar");
 
-		String frasenueva = frasedesreves(frase);
+		String frasenueva =frasesdesreves(frase);
 		String frasedes = "";
 
 		String fraseDef = "";
@@ -159,15 +159,6 @@ public class romperMaquina {
 
 	}
 
-	public static String frasedesreves(String frase) {
-		String frasealreves = "";
-		for (int h = frase.length() - 1; h >= 0; h--) {
-			frasealreves += frase.charAt(h);
-
-		}
-		return frasealreves;
-	}
-
 	public static String descifrarRotor4(String frase, int valor) {
 		int c = 0;
 		String nueva = "";
@@ -189,12 +180,12 @@ public class romperMaquina {
 
 		}
 
-		String fraseReves = FraseAlRevesPrograma(nueva);
-		//System.out.println(fraseReves);
-		return (String) fraseReves;
+		/*String fraseReves = frasesdesreves(nueva);
+		//System.out.println(fraseReves);*/
+		return (String) nueva;
 	}
 
-	public static String FraseAlRevesPrograma(String frase) {
+	public static String frasesdesreves(String frase) {
 		String fraseReves = "";
 		for (int i = frase.length() - 1; i >= 0; i--) {
 			fraseReves = fraseReves + frase.charAt(i);

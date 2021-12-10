@@ -23,11 +23,7 @@ public class Rotor_4 {
         String nueva="";
         String fraseReves = FraseAlRevesPrograma(cadena);
         for (int i=0; i<fraseReves.length();i++) {
-            int asciiValue = fraseReves.charAt(i);
             while(c<5) {
-                if (asciiValue>=32 && asciiValue<=126) {
-					nueva = nueva + descifrar(fraseReves.charAt(i), valor);
-				}else{
                 nueva=nueva+Cifrar(fraseReves.charAt(i), valor);
 
                 break;
@@ -54,14 +50,10 @@ public class Rotor_4 {
         int c=0;
         String nueva="";
         for (int i=0; i<cadena.length();i++) {
-            int asciiValue = cadena.charAt(i);
             while(c<5) {
-                if (asciiValue>=32 && asciiValue<=126) {
-					nueva = nueva + descifrar(cadena.charAt(i), valor);
-				}else{
-					nueva = nueva + cadena.charAt(i);
-				}
-				break;
+                nueva=nueva+Descifrar(cadena.charAt(i), valor);
+
+                break;
             }
             while(c>=5) {
                 nueva=nueva+cadena.charAt(i);
