@@ -26,7 +26,7 @@ public class Rotor_4 {
             int asciiValue = fraseReves.charAt(i);
             while(c<5) {
                 if (asciiValue>=32 && asciiValue<=126) {
-					nueva = nueva + descifrar(frase.charAt(i), valor);
+					nueva = nueva + descifrar(fraseReves.charAt(i), valor);
 				}else{
                 nueva=nueva+Cifrar(fraseReves.charAt(i), valor);
 
@@ -57,7 +57,7 @@ public class Rotor_4 {
             int asciiValue = cadena.charAt(i);
             while(c<5) {
                 if (asciiValue>=32 && asciiValue<=126) {
-					nueva = nueva + descifrar(frase.charAt(i), valor);
+					nueva = nueva + descifrar(cadena.charAt(i), valor);
 				}else{
 					nueva = nueva + cadena.charAt(i);
 				}
