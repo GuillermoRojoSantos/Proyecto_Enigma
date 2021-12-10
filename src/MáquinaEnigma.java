@@ -15,20 +15,26 @@ public class MáquinaEnigma {
                 //aquí iria el encriptadoR
                 System.out.println("Cadena: ");
                 String cadena = sc.nextLine();
+                esperarPulsacion();
                 System.out.println();
                 System.out.println("Rotor1");
                 int rt1= sc.nextInt();
+                esperarPulsacion();
                 System.out.println();
                 System.out.println("Rotor2");
                 int rt2= sc.nextInt();
+                esperarPulsacion();
                 System.out.println();
                 System.out.println("Rotor3");
                 int rt3= sc.nextInt();
+                esperarPulsacion();
                 System.out.println();
                 System.out.println("Rotor4");
                 int rt4= sc.nextInt();
+                esperarPulsacion();
                 System.out.println();
-                System.out.println(Rotor4Encriptar(Rotor3Encriptar(Rotor2Encriptar(Rotor1Encriptar(cadena,rt1),rt2),rt3),rt4));
+                String resultado=Rotor4Encriptar(Rotor3Encriptar(Rotor2Encriptar(Rotor1Encriptar(cadena,rt1),rt2),rt3),rt4);
+                System.out.println(resultado);
                 break;
             case 2:
                 //aquí iría el desencriptadoR
@@ -72,6 +78,10 @@ public class MáquinaEnigma {
         System.out.println("   cidencia con alguna palabra introducida.");
         System.out.println("************************************************");
     }
+    public static void esperarPulsacion() {
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
+    }
     public static String Rotor1Encriptar(String cadena, int numRotor) {
         int c=0;
         String cadenaRotor1="";
@@ -98,7 +108,7 @@ public class MáquinaEnigma {
                 c=0;
             }
         }
-       return cadenaRotor1;
+       return (String) cadenaRotor1;
     }
     public static String Rotor1Desencriptar(String cadena, int numRotor) {
         int c=0;
@@ -128,37 +138,35 @@ public class MáquinaEnigma {
 
         }
 
-        return nueva;
+        return (String) nueva;
     }
     public static String Rotor2Encriptar(String cadena, int numRotor){
-        String frase = cadena;
+
         String fraseNueva= "";
-        for (int i = 0;i<frase.length();i++){
+        for (int i = 0;i<cadena.length();i++){
             if (i %2==0){
-                fraseNueva += Cifrardor(frase.charAt(i),numRotor);
+                fraseNueva += Cifrardor(cadena.charAt(i),numRotor);
                 numRotor +=11;
             }else{
-                fraseNueva+=frase.charAt(i);
+                fraseNueva+=cadena.charAt(i);
             }
         }
-       return fraseNueva;
+       return (String) fraseNueva;
     }
     public static String Rotor2Desenciptar (String cadena, int numRotor){
-        String frase = cadena;
+
         String fraseNueva= "";
-        for (int i = 0;i<frase.length();i++){
+        for (int i = 0;i<cadena.length();i++){
             if (i %2==0){
-                fraseNueva += Descifrar(frase.charAt(i),numRotor);
+                fraseNueva += Descifrar(cadena.charAt(i),numRotor);
                 numRotor +=11;
             }else{
-                fraseNueva+=frase.charAt(i);
+                fraseNueva+=cadena.charAt(i);
             }
         }
-       return fraseNueva;
+       return (String) fraseNueva;
     }
     public static String Rotor3Encriptar(String cadena, int numRotor){
-        Scanner sc= new Scanner (System.in);
-        System.out.println("Introduce la frase del rotor C");
         String fraseEncriptada="";
         int rotorC=85;
         for( int i=cadena.length()-1;i>=0;i--) {
@@ -171,7 +179,7 @@ public class MáquinaEnigma {
 
 
         }
-        return fraseEncriptada;
+        return (String) fraseEncriptada;
     }
     public static String Rotor3Desencriptar(String cadena, int numRotor){
         String frasenueva = InvertirCadena(cadena);
@@ -195,7 +203,7 @@ public class MáquinaEnigma {
             fraseDef+=frasedes.charAt(j);
 
         }
-        return fraseDef;
+        return (String) fraseDef;
 
 
 
@@ -220,7 +228,7 @@ public class MáquinaEnigma {
 
             }
         }
-        return nueva;
+        return (String) nueva;
     }
     public static String Rotor4Desencriptar(String cadena, int numRotor){
         int c=0;
@@ -240,7 +248,7 @@ public class MáquinaEnigma {
 
             }
         }
-        return nueva;
+        return (String) nueva;
     }
     public static char Cifrardor (char letra, int valor) {
 
