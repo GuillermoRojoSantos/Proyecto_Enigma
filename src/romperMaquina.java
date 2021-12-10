@@ -6,12 +6,12 @@ public class romperMaquina {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-		String[] palabrasClave = { "Dubrowki","Opotschka"};
+		String[] palabrasClave = { "EMERGENCIA","Comandante"};
 
 		System.out.println("Introduzca la frase a romper");
 		String frase = sc.nextLine();
 		String resultadoRotor="";
-		String rotor1,rotor2,rotor3,rotor4;
+		/*String rotor1,rotor2,rotor3,rotor4;
 
 		rotor1=descifrarRotor1(frase,59);
 		rotor2=descifrarRotor2(rotor1,31);
@@ -19,7 +19,7 @@ public class romperMaquina {
 		rotor4=descifrarRotor4(rotor3,87);
 
 		System.out.println(rotor4);
-		sc.nextLine();
+		sc.nextLine();*/
 		for (int i = 59; i <= 99; i++) {
 			System.out.println(i);
 			for(int m=29;m<=99;m++) {
