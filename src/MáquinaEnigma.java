@@ -154,7 +154,7 @@ public class MáquinaEnigma {
         for (int i = 0; i < cadena.length(); i++) {
             int assciiValue = cadena.charAt(i);
             if (c < 3 && assciiValue >= 32 && assciiValue <= 126) {
-                nueva = nueva + Cifrardor(cadena.charAt(i), numRotor);
+                nueva = nueva + Cifrador(cadena.charAt(i), numRotor);
             }else{
                 nueva = nueva + cadena.charAt(i);
             }
@@ -187,11 +187,11 @@ public class MáquinaEnigma {
     public static String Rotor2Encriptar(String cadena, int numRotor){
         String fraseEncriptada = "";
 
-        for (int i = 0; i <= cadena.length() - 1; i++) {
+        for (int i = 0; i <= cadena.length()-1; i++) {
             int asciiValue = cadena.charAt(i);
 
             if (asciiValue >= 32 && asciiValue <= 126 && i % 2 == 0) {
-                fraseEncriptada += Cifrardor(cadena.charAt(i), numRotor);
+                fraseEncriptada += Cifrador(cadena.charAt(i), numRotor);
                 numRotor += 11;
             } else {
                 fraseEncriptada += cadena.charAt(i);
@@ -218,7 +218,7 @@ public class MáquinaEnigma {
         for( int i=cadena.length()-1;i>=0;i--) {
             int asciiValue = cadena.charAt(i);
             if(i%2!=0 && asciiValue >= 32 && asciiValue <= 126) {
-                fraseEncriptada+=Cifrardor(cadena.charAt(i),numRotor);
+                fraseEncriptada+=Cifrador(cadena.charAt(i),numRotor);
                 numRotor+=23;
             }else {
                 fraseEncriptada+=cadena.charAt(i);
@@ -266,7 +266,7 @@ public class MáquinaEnigma {
             int assciiValue = fraseReves.charAt(i);
 
             if (c < 5 && assciiValue >= 32 && assciiValue <= 126) {
-                nueva = nueva + Cifrardor(fraseReves.charAt(i), numRotor);
+                nueva = nueva + Cifrador(fraseReves.charAt(i), numRotor);
             }else{
                 nueva = nueva + fraseReves.charAt(i);
 
@@ -299,7 +299,7 @@ public class MáquinaEnigma {
         }
         return nueva;
     }
-    public static char Cifrardor (char letra, int valor) {
+    public static char Cifrador (char letra, int valor) {
 
         int codigo=(int)letra;
         int desplazamiento = codigo+valor%95;

@@ -6,7 +6,7 @@ public class romperMaquina {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-		String[] palabrasClave = { "EMERGENCIA","Comandante"};
+		String[] palabrasClave = { "radiotelegrama"};
 
 		System.out.println("Introduzca la frase a romper");
 		String frase = sc.nextLine();
@@ -20,21 +20,17 @@ public class romperMaquina {
 
 		System.out.println(rotor4);
 		sc.nextLine();*/
-		for (int i = 59; i <= 99; i++) {
-			System.out.println(i);
-			for(int m=29;m<=99;m++) {
-				System.out.print(m+" ");
+		for (int i = 0; i <= 99; i++) {
+			for(int m=0;m<=99;m++) {
 				for(int n=0;n<=99;n++) {
-
 					for(int l=0;l<=99;l++) {
-
 						resultadoRotor=descifrarRotor4(descifrarRotor3(descifrarRotor2(descifrarRotor1(frase, i),m),n),l);
 
 						for(String clave:palabrasClave)
 
 
 							if(resultadoRotor.contains(clave)) {
-								System.out.println("Palabra clave encontrada: "+clave+i+" "+m+" "+n+" "+l);
+								System.out.println("Palabra clave encontrada: "+clave+" "+i+" "+m+" "+n+" "+l);
 								System.out.println(resultadoRotor);
 
 							}else {
@@ -86,8 +82,6 @@ public class romperMaquina {
 				c++;
 			}
 		}
-		//System.out.println("Das frasen desencriptaren ist: ");
-		//System.out.println(nueva);
 		return nueva;
 	}
 
@@ -148,8 +142,6 @@ public class romperMaquina {
 
 			}
 		}
-
-
 		for (int j = frasedes.length() - 1; j >= 0; j--) {
 			fraseDef += frasedes.charAt(j);
 		}

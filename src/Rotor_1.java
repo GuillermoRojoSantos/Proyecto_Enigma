@@ -1,7 +1,5 @@
-import java.util.Collections;
 import java.util.Scanner;
 public class Rotor_1 {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc= new Scanner(System.in);
@@ -13,19 +11,20 @@ public class Rotor_1 {
 		char encriptOption=sc.next().charAt(0);
 		int c=0;
 		if (encriptOption=='E'|| encriptOption=='e') {
-			Encriptar(cadena, valor);
+			Rotor1Encriptar(cadena, valor);
 		}
 		if (encriptOption=='D' || encriptOption=='d') {
-			Desencriptar(cadena, valor);
+			Rotor1Desencriptar(cadena, valor);
 		}
 	}
-	public static void Encriptar(String cadena, int valor) {
+
+	public static void Rotor1Encriptar(String cadena, int valor) {
 		int c = 0;
 		String nueva = "";
 		for (int i = 0; i < cadena.length(); i++) {
 			int assciiValue = cadena.charAt(i);
 			if (c < 3 && assciiValue >= 32 && assciiValue <= 126) {
-				nueva = nueva + Cifrardor(cadena.charAt(i), valor);
+				nueva = nueva + Cifrador(cadena.charAt(i), valor);
 			}else{
 				nueva = nueva + cadena.charAt(i);
 			}
@@ -35,9 +34,10 @@ public class Rotor_1 {
 				c++;
 			}
 		}
+		System.out.println("Das frasen encriptaren ist:");
 		System.out.println(nueva);
 	}
-	public static void Desencriptar(String cadena, int valor) {
+	public static void Rotor1Desencriptar(String cadena, int valor) {
 		int c = 0;
 		String nueva = "";
 		for (int i = 0; i < cadena.length(); i++) {
@@ -53,9 +53,10 @@ public class Rotor_1 {
 				c++;
 			}
 		}
+		System.out.println("Das frasen desencriptaren ist:");
 		System.out.println(nueva);
 	}
-	public static char Cifrardor (char letra, int valor) {
+	public static char Cifrador (char letra, int valor) {
 
 		int codigo=(int)letra;
 		int desplazamiento = codigo+valor%95;

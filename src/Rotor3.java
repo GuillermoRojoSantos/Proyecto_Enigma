@@ -2,30 +2,69 @@ import java.util.Scanner;
 
 public class Rotor3 {
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         Scanner sc= new Scanner(System.in);
-        System.out.println("Introduce la frase del rotor C");
+        System.out.println("Introduzquen eine frasen paren encriptaren or desencriptaren: ");
+        String cadena= sc.nextLine();//la cadena introducida
+        System.out.println("Escojen valoren das rotoren: ");
+        int valor=sc.nextInt();
+        System.out.println("Elija si quieren Encriptaren (E) o Desencriptaren (D)");
+        char encriptOption=sc.next().charAt(0);
+        int c=0;
+        if (encriptOption=='E'|| encriptOption=='e') {
+            Rotor3Encriptar(cadena, valor);
+        }
+        if (encriptOption=='D' || encriptOption=='d') {
+            Rotor3Desencriptar(cadena, valor);
+        }
+    }
 
-        String frase=sc.nextLine();
+    public static void Rotor3Encriptar(String cadena, int numRotor){
         String fraseEncriptada="";
-        int rotorC=85;
-        for( int i=frase.length()-1;i>=0;i--) {
-            if(i%2!=0) {
-                fraseEncriptada+=cifrar(frase.charAt(i),rotorC);
-                rotorC+=23;
+        for( int i=cadena.length()-1;i>=0;i--) {
+            int asciiValue = cadena.charAt(i);
+            if(i%2!=0 && asciiValue >= 32 && asciiValue <= 126) {
+                fraseEncriptada+=Cifrador(cadena.charAt(i),numRotor);
+                numRotor+=23;
             }else {
-                fraseEncriptada+=frase.charAt(i);
+                fraseEncriptada+=cadena.charAt(i);
             }
 
 
         }
+        System.out.println("Das frasen encriptaren ist:");
         System.out.println(fraseEncriptada);
-
-
-
     }
-
-    public static char cifrar (char letra, int valor) {
+    public static void Rotor3Desencriptar(String cadena, int numRotor){
+        String frasedes = "";
+        String fraseDef = "";
+        if (cadena.length()%2==0) {
+            for (int i=0;i<cadena.length();i++) {
+                int asciiValue = cadena.charAt(i);
+                if (asciiValue >= 32 && asciiValue <= 126 && i % 2 == 0) {
+                    frasedes += Descifrar(cadena.charAt(i), numRotor);
+                    numRotor += 23;
+                } else {
+                    frasedes += cadena.charAt(i);
+                }
+            }
+        }else {
+            for (int i=0;i<cadena.length();i++) {
+                int asciiValue = cadena.charAt(i);
+                if (asciiValue >= 32 && asciiValue <= 126 && i % 2 != 0) {
+                    frasedes += Descifrar(cadena.charAt(i), numRotor);
+                    numRotor += 23;
+                } else {
+                    frasedes += cadena.charAt(i);
+                }
+            }
+        }
+        for (int j = frasedes.length() - 1; j >= 0; j--) {
+            fraseDef += frasedes.charAt(j);
+        }
+        System.out.println("Das frasen desencriptaren ist:");
+        System.out.println(fraseDef);
+    }
+    public static char Cifrador (char letra, int valor) {
 
         int codigo=(int)letra;
         int desplazamiento = codigo+valor%95;
@@ -33,6 +72,19 @@ public class Rotor3 {
         if (desplazamiento>126) resultado=desplazamiento-95;
         else resultado=desplazamiento;
         return (char)resultado;
+
+
+    }
+    public static char Descifrar (char letra, int valor) {
+
+
+        int codigo=(int)letra;
+        int desplazamiento = codigo-valor%95;
+        int resultado;
+        if (desplazamiento<32) resultado=desplazamiento+95;
+        else resultado=desplazamiento;
+        return (char)resultado;
+
     }
 
     }

@@ -3,22 +3,23 @@ public class Rotor_4 {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         Scanner sc= new Scanner(System.in);
-        System.out.println("Introduzca una frase para encriptar: ");
+        System.out.println("Introduzquen eine frasen paren encriptaren or desencriptaren: ");
         String cadena= sc.nextLine();
-        System.out.println("Escoja valor del rotor: ");
+        System.out.println("Escojen valoren das rotoren: ");
         int valor=sc.nextInt();
 
-        System.out.println("Elija si quiere Encriptar (E) o Desencriptar (D)");
+        System.out.println("Elija si quieren Encriptaren (E) o Desencriptaren (D)");
         char encriptOption=sc.next().charAt(0);
         int c=0;
         if (encriptOption=='E'|| encriptOption=='e') {
-            Encriptar(cadena, valor);
+            Rotor4Encriptar(cadena, valor);
         }
         if (encriptOption=='D' || encriptOption=='d') {
-            Desencriptar(cadena, valor);
+            Rotor4Desencriptar(cadena, valor);
         }
     }
-    public static void Encriptar(String cadena, int valor) {
+
+    public static void Rotor4Encriptar(String cadena, int valor) {
         int c=0;
         String nueva="";
         String fraseReves = InvertirCadena(cadena);
@@ -26,32 +27,26 @@ public class Rotor_4 {
             int assciiValue = fraseReves.charAt(i);
 
             if (c < 5 && assciiValue >= 32 && assciiValue <= 126) {
-                nueva = nueva + Cifrardor(fraseReves.charAt(i), numRotor);
+                nueva = nueva + Cifrar(fraseReves.charAt(i), valor);
             }else{
                 nueva = nueva + fraseReves.charAt(i);
-
             }
             if (c == 9) {
                 c = 0;
-
             }else {
                 c++;
             }
-
-
         }
-
+        System.out.println("Das frasen encriptaren ist:");
         System.out.println(nueva);
-
-
     }
-    public static void Desencriptar(String cadena, int valor) {
-       int c = 0;
+    public static void Rotor4Desencriptar(String cadena, int valor) {
+        int c = 0;
         String nueva = "";
         for (int i = 0; i < cadena.length(); i++) {
             int assciiValue = cadena.charAt(i);
             if (c < 5 && assciiValue >= 32 && assciiValue <= 126) {
-                nueva = nueva + Descifrar(cadena.charAt(i), numRotor);
+                nueva = nueva + Descifrar(cadena.charAt(i), valor);
             }else{
                 nueva = nueva + cadena.charAt(i);
             }
@@ -61,12 +56,8 @@ public class Rotor_4 {
                 c++;
             }
         }
-
-
-        }
-
-
-        String fraseReves = FraseAlRevesPrograma(nueva);
+        String fraseReves = InvertirCadena(nueva);
+        System.out.println("Das frasen desencriptaren ist:");
         System.out.println(fraseReves);
     }
     public static char Cifrar (char letra, int valor) {
@@ -90,12 +81,12 @@ public class Rotor_4 {
         return (char)resultado;
 
     }
-
-    public static String FraseAlRevesPrograma(String cadena) {
-        String fraseReves = "";
-        for(int i=cadena.length()-1;i>=0;i--) {
-            fraseReves = fraseReves + cadena.charAt(i);
-        } return fraseReves;
+    public static String InvertirCadena (String cadena){
+        String frasealreves="";
+        for(int h=cadena.length()-1;h>=0;h--) {
+            frasealreves += cadena.charAt(h);
+        }
+        return frasealreves;
     }
 
 
