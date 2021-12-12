@@ -1,0 +1,26 @@
+***********************************************************************************************************************************************************************************
+Cifrado 1, 24 noviembre 1941. Cerca de Opotschka. sobre las 17:00. 16ª División Motorizada de Infanteria.
+Código de Rotores(A B C D): 59 31 92 87
+Frase obtenida:
+"Unidad de reconocimiento de Kurtinowa, noroeste de Sebez en el corredor de vuelo en dirección a Dubrowki, Opotschka. Empezó a moverse a las 18:30. Ataque. Regimiento de infantería 3 avanza despacio pero seguro. Hora 17:06, I (número romano) Regimiento de infantería 3 en el corredor de vuelo comenzando a 16 km hacia el este de Kamenec."
+***********************************************************************************************************************************************************************************
+Cifrado 2, 24 noviembre 1941. Canal de la Mancha. Suroeste de Inglaterra. 6:45 h.
+Código de Rotores: 59 31 92 87 
+Frase obtenida:
+"Informe del Tiempo. Sabado, 24 noviembre 1941. 6:45h a.m. U-505 U-Boat en periodo de entrenamiento. Cielos parcialmente nublados. Ausencia total de precipitaciones. Mar en calma. Viento noreste 6. Visibilidad total."
+***********************************************************************************************************************************************************************************
+Cifrado 3, 24 noviembre 1941. Mar Céltico. U-Boat. 22:30.
+Código de Rotores: 59 31 92 87
+Frase Obtenida:
+"Alerta, U-264 bajo ataque. contenido del radiotelegrama 1132/19: Obligado a sumergirse bajo ataque, cargas de profundidad. Última ubicación enemiga 08:30 horas, plaza marítima AJ9863, siguiendo 220 grados, 8 nudos. [Presión] 14 milibares cayendo, [viento] noreste 4, visibilidad 10."
+***********************************************************************************************************************************************************************************
+Cifrado 4, 24 Noviembre 1941. 7:05.
+Código de Rotores: 59 31 92 87
+Frase Obtenida:
+"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL QUE OS DEN BRITANICOS"
+***********************************************************************************************************************************************************************************
+Cifrado Final, 30 de Abril de 1945. De las oficinas del Reichsleiter Bormann, propagado y repetido por múltiples elementos en el mar.
+Código de Rotores: 59 31 92 87
+Frase Obtenida:
+"MENSAJE DE EMERGENCIA DE GUERRA [Para] Todos: Lo siguiente se anunciará de inmediato:He recibido la siguiente orden: 'En lugar del anterior Reichsmarschall 'Göring', el Führer le ha nombrado,Herr Grossadmiral, como su sucesor. La autorización por escrito [está] en camino. Con efecto inmediato, debe solicitar todas las medidas, que son requeridas por la situación actual. Firmado, Reichsleiter (Tulpe) 'Bormann':[De] Comandante en Jefe de la Armada,[enviado] a través de la emisora de radio al Almirante Comandante de Submarinos."
+***********************************************************************************************************************************************************************************
