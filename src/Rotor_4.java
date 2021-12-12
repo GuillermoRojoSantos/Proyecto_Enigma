@@ -21,22 +21,21 @@ public class Rotor_4 {
     public static void Encriptar(String cadena, int valor) {
         int c=0;
         String nueva="";
-        String fraseReves = FraseAlRevesPrograma(cadena);
-        for (int i=0; i<fraseReves.length();i++) {
-            while(c<5) {
-                nueva=nueva+Cifrar(fraseReves.charAt(i), valor);
+        String fraseReves = InvertirCadena(cadena);
+        for (int i = 0; i < fraseReves.length(); i++) {
+            int assciiValue = fraseReves.charAt(i);
 
-                break;
+            if (c < 5 && assciiValue >= 32 && assciiValue <= 126) {
+                nueva = nueva + Cifrardor(fraseReves.charAt(i), numRotor);
+            }else{
+                nueva = nueva + fraseReves.charAt(i);
+
             }
-            while(c>=5) {
-                nueva=nueva+fraseReves.charAt(i);
+            if (c == 9) {
+                c = 0;
 
-                break;
-            }
-            c++;
-            if(c==10) {
-                c=0;
-
+            }else {
+                c++;
             }
 
 
@@ -47,24 +46,21 @@ public class Rotor_4 {
 
     }
     public static void Desencriptar(String cadena, int valor) {
-        int c=0;
-        String nueva="";
-        for (int i=0; i<cadena.length();i++) {
-            while(c<5) {
-                nueva=nueva+Descifrar(cadena.charAt(i), valor);
-
-                break;
+       int c = 0;
+        String nueva = "";
+        for (int i = 0; i < cadena.length(); i++) {
+            int assciiValue = cadena.charAt(i);
+            if (c < 5 && assciiValue >= 32 && assciiValue <= 126) {
+                nueva = nueva + Descifrar(cadena.charAt(i), numRotor);
+            }else{
+                nueva = nueva + cadena.charAt(i);
             }
-            while(c>=5) {
-                nueva=nueva+cadena.charAt(i);
-
-                break;
+            if (c == 9) {
+                c = 0;
+            }else {
+                c++;
             }
-            c++;
-            if(c==10) {
-                c=0;
-
-            }
+        }
 
 
         }
