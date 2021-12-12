@@ -2,25 +2,22 @@ import java.util.Scanner;
 
 public class MáquinaEnigma {
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        Scanner sc = new Scanner(System.in);
-        ImprimirMenu();
        int opcionMenu = 1;
        while (opcionMenu!=4) {
-           opcionMenu = sc.nextInt();
+           ImprimirMenu();
+           opcionMenu = LeerEntada();
            switch (opcionMenu) {
                case 1:
                    //aquí iria el encriptadoR
                    ModuloEncriptarEnigma();
-                   sc.nextLine();
                    break;
                case 2:
                    //aquí iría el desencriptadoR
                    ModuloDesencriptarEnigma();
-                   sc.nextLine();
                    break;
                case 3:
-                   //y aquí iría el código para romper la máquina enigmA
+                   //y aquí iría el código para romper la máquina enigma
+                   ModuloRomperEnigma();
                    break;
                case 4:
                    System.out.println("Gracias por usar este programa!");
@@ -49,7 +46,16 @@ public class MáquinaEnigma {
         System.out.println("   palabras introducida, el programa buscará la ");
         System.out.println("   posición de cada rotor si encuentra una coin-");
         System.out.println("   cidencia con alguna palabra introducida.");
+        System.out.println("   (¡ANTES DE USAR LA OPCIÓN 3 CAMBIE EL ARRAY  ");
+        System.out.println("   Y PONGA LAS PALABRAS QUE QUIERA BUSCAR!)");
+        System.out.println();
+        System.out.println("4. Salir del menú.");
         System.out.println("************************************************");
+    }
+    public static int LeerEntada(){
+        Scanner sc = new Scanner(System.in);
+        int numero=sc.nextInt();
+        return numero;
     }
     public static void esperarPulsacion() {
         Scanner sc = new Scanner(System.in);
@@ -117,6 +123,31 @@ public class MáquinaEnigma {
 
         System.out.println(rotor4);
     }
+    public static void ModuloRomperEnigma(){
+        Scanner sc = new Scanner(System.in);
+        String[] palabrasClave = { "radiotelegrama"};
+        System.out.println("Introduzca la frase a romper");
+        String frase = sc.nextLine();
+        String resultadoRotor="";
+        for (int i = 0; i <= 99; i++) {
+            for(int m=0;m<=99;m++) {
+                for(int n=0;n<=99;n++) {
+                    for(int l=0;l<=99;l++) {
+                        resultadoRotor=Rotor4Desencriptar(Rotor3Desencriptar(Rotor2Desencriptar(Rotor1Desencriptar(frase, i),m),n),l);
+
+                        for(String clave:palabrasClave)
+
+
+                            if(resultadoRotor.contains(clave)) {
+                                System.out.println("Palabra clave encontrada: "+clave+" "+i+" "+m+" "+n+" "+l);
+                                System.out.println(resultadoRotor);
+
+                            }
+                        }
+                    }
+                }
+            }
+    }
     public static String Rotor1Encriptar(String cadena, int numRotor) {
         int c = 0;
         String nueva = "";
@@ -164,27 +195,22 @@ public class MáquinaEnigma {
                 numRotor += 11;
             } else {
                 fraseEncriptada += cadena.charAt(i);
-
             }
-
         }
-        //System.out.println(fraseEncriptada);
+
         return fraseEncriptada;
     }
     public static String Rotor2Desencriptar(String cadena, int numRotor){
         String fraseEncriptada = "";
-
         for (int i = 0; i <= cadena.length() - 1; i++) {
             int asciiValue = cadena.charAt(i);
-
             if (asciiValue >= 32 && asciiValue <= 126 && i % 2 == 0) {
                 fraseEncriptada += Descifrar(cadena.charAt(i), numRotor);
-                cadena += 11;
+                numRotor += 11;
             } else {
                 fraseEncriptada += cadena.charAt(i);
             }
         }
-        //System.out.println(fraseEncriptada);
         return fraseEncriptada;
     }
     public static String Rotor3Encriptar(String cadena, int numRotor){
