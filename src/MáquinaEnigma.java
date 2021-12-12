@@ -125,7 +125,7 @@ public class MáquinaEnigma {
     }
     public static void ModuloRomperEnigma(){
         Scanner sc = new Scanner(System.in);
-        String[] palabrasClave = { "radiotelegrama"};
+        String[] palabrasClave = { "radiotelegrama","Noviembre","Führer","Terezín","ghetto","Erwin","Rommel"};
         System.out.println("Introduzca la frase a romper");
         String frase = sc.nextLine();
         String resultadoRotor="";

@@ -20,62 +20,39 @@ public class Rotor_1 {
 		}
 	}
 	public static void Encriptar(String cadena, int valor) {
-		int c=0;
-		String nueva="";
-		for (int i=0; i<cadena.length();i++) {
+		int c = 0;
+		String nueva = "";
+		for (int i = 0; i < cadena.length(); i++) {
 			int assciiValue = cadena.charAt(i);
-			if (assciiValue>=32 && assciiValue<=126) {
-
-
-				while (c < 3) {
-					nueva = nueva + Cifrardor(cadena.charAt(i), valor);
-					//System.out.println(nueva);
-					break;
-				}
-				while (c >= 3) {
-					nueva = nueva + cadena.charAt(i);
-					//System.out.println(nueva2);
-					break;
-				}
+			if (c < 3 && assciiValue >= 32 && assciiValue <= 126) {
+				nueva = nueva + Cifrardor(cadena.charAt(i), valor);
 			}else{
-				nueva +=cadena.charAt(i);
+				nueva = nueva + cadena.charAt(i);
 			}
-			c++;
-			if(c==6) {
-				c=0;
+			if (c == 5) {
+				c = 0;
+			}else {
+				c++;
 			}
 		}
-		System.out.println("Das frasen encriptaren ist: ");
 		System.out.println(nueva);
 	}
 	public static void Desencriptar(String cadena, int valor) {
-		int c=0;
-		String nueva="";
-		for (int i=0; i<cadena.length();i++) {
+		int c = 0;
+		String nueva = "";
+		for (int i = 0; i < cadena.length(); i++) {
 			int assciiValue = cadena.charAt(i);
-			if (assciiValue>=32 && assciiValue<=126) {
-				while (c < 3) {
-					nueva = nueva + Descifrar(cadena.charAt(i), valor);
-					//System.out.println(nueva);
-					break;
-				}
-				while (c >= 3) {
-					nueva = nueva + cadena.charAt(i);
-					//System.out.println(nueva2);
-					break;
-				}
+			if (c < 3 && assciiValue >= 32 && assciiValue <= 126) {
+				nueva = nueva + Descifrar(cadena.charAt(i), valor);
 			}else{
-				nueva +=cadena.charAt(i);
+				nueva = nueva + cadena.charAt(i);
 			}
-			c++;
-			if(c==6) {
-				c=0;
-
+			if (c == 5) {
+				c = 0;
+			}else {
+				c++;
 			}
-
-
 		}
-		System.out.println("Das frasen desencriptaren ist: ");
 		System.out.println(nueva);
 	}
 	public static char Cifrardor (char letra, int valor) {
